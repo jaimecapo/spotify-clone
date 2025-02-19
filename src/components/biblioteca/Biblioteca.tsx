@@ -1,8 +1,21 @@
 import { PLAYLISTS } from "@lib/data";
 import BibliotecaItem from "./BibliotecaItem";
 import BtnLupa from "@components/BtnLupa";
+import { useMemo, useState } from "react";
 
 export default function Biblioteca() {
+  const [termino, setTermino] = useState("");
+
+  const playlists = useMemo(
+    () =>
+      PLAYLISTS.filter((a) =>
+        [a.name, a.author].find((text) =>
+          text.toLowerCase().includes(termino.toLowerCase()),
+        ),
+      ),
+    [termino],
+  );
+
   return (
     <div className="h-full grid grid-cols-1 grid-rows-[auto_1fr] gap-2">
       <header className="flex flex-row gap-2 p-4 pb-2 items-center ">
@@ -41,9 +54,10 @@ export default function Biblioteca() {
               type="text"
               name="termino"
               id="termino"
+              onChange={(e) => setTermino(e.currentTarget.value)}
             />
           </div>
-          {PLAYLISTS.map((pl) => (
+          {playlists.map((pl) => (
             <BibliotecaItem playlist={pl} />
           ))}
         </ul>
