@@ -1,6 +1,5 @@
 import { PLAYLISTS } from "@lib/data";
 import BibliotecaItem from "./BibliotecaItem";
-import { useState } from "react";
 import BtnLupa from "@components/BtnLupa";
 
 export default function Biblioteca() {

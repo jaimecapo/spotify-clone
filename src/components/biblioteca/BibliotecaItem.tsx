@@ -1,5 +1,4 @@
 import type { Playlist } from "@lib/data";
-import { useMemo } from "react";
 
 type Props = {
   playlist: Playlist;
