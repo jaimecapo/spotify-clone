@@ -1,12 +1,12 @@
 import { PLAYLISTS } from "@lib/data";
 import BibliotecaItem from "./BibliotecaItem";
 import { useState } from "react";
+import BtnLupa from "@components/BtnLupa";
 
 export default function Biblioteca() {
-  const [showDetails, setShowDetails] = useState(true);
   return (
     <div className="h-full grid grid-cols-1 grid-rows-[auto_1fr] gap-2">
-      <header className="flex flex-row gap-2 p-4 ">
+      <header className="flex flex-row gap-2 p-4 pb-2 items-center ">
         <button className="btn">
           <span
             aria-hidden="true"
@@ -24,11 +24,26 @@ export default function Biblioteca() {
             </svg>
           </span>
         </button>
-        <h2 className="font-bold text-[1.5em]">Tu Biblioteca</h2>
+        <h2 className="font-medium text-[1.1em] text-[var(--secundary-font)]">
+          Tu Biblioteca
+        </h2>
       </header>
       <section className="playlists">
-        <div className="playlists-filters"></div>
-        <ul className="flex flex-col gap-2">
+        <ul className="flex flex-col p-2">
+          <div className="playlists-filters grid grid-cols-[auto_1fr] gap-2 p-2 items-center">
+            <BtnLupa
+              height={20}
+              onClick={() => {
+                return;
+              }}
+            />
+            <input
+              className="rounded-[5px]"
+              type="text"
+              name="termino"
+              id="termino"
+            />
+          </div>
           {PLAYLISTS.map((pl) => (
             <BibliotecaItem playlist={pl} />
           ))}
