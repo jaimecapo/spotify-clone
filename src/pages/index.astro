@@ -4,4 +4,29 @@ import Layout from "../layouts/Layout.astro";
 // Bienvenido a mi recreación de Spotify.
 ---
 
-<Layout />
+<Layout>
+  <div class="background-gradient absolute top-0 right-0 w-full h-30"></div>
+  <div class="content">
+    <div><button>Todo</button> <button>Albumes</button></div>
+  </div>
+</Layout>
+
+<style>
+  :root {
+    --gradient-color: red;
+  }
+  .background-gradient {
+    background: linear-gradient(
+      180deg,
+      var(--gradient-color),
+      rgba(252, 176, 69, 0) 100%
+    );
+    z-index: 1;
+    opacity: 0.2;
+    transition: background 0.5s ease;
+  }
+  .content {
+    position: inherit;
+    z-index: 1;
+  }
+</style>

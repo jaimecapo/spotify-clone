@@ -5,6 +5,7 @@ export type Playlist = {
   isAlbum: boolean;
   img: string;
   songs: RelationSong[];
+  color: string;
 };
 
 type RelationSong = {
@@ -26,6 +27,7 @@ export const PLAYLISTS: Playlist[] = [
     name: "Canciones que te gustan",
     author: "jaime.cabaleiro",
     img: "https://misc.scdn.co/liked-songs/liked-songs-640.jpg",
+    color: "#684ae8",
     isAlbum: false,
     songs: [
       {
@@ -141,6 +143,7 @@ export const PLAYLISTS: Playlist[] = [
     author: "Rels B",
     img: "https://i.scdn.co/image/ab67616d00001e020579a9f20ec52281f4447c73",
     isAlbum: true,
+    color: "#a0968d",
     songs: [
       {
         addedAt: new Date(),
@@ -210,6 +213,7 @@ export const PLAYLISTS: Playlist[] = [
     author: "jaime.cabaleiro",
     img: "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c58a3a240e9b348843fe75fb9",
     isAlbum: false,
+    color: "#8f28d5",
     songs: [
       {
         addedAt: new Date(),
