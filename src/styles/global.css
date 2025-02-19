@@ -1,1 +1,35 @@
 @import "tailwindcss";
+
+:root {
+  --background-color: black;
+  --interface-color: #1f1f1f;
+  --interface-focus-color: #2c2c2c;
+  --primary-font: white;
+  --secundary-font: #b3b3b3;
+}
+
+.btn svg.clickable {
+  transition:
+    fill 0.2s ease,
+    scale 0.2s ease;
+  fill: var(--secundary-font); /*Cambia el color del svg*/
+}
+.btn svg.clickable:hover {
+  fill: var(--primary-font); /*Cambia el color del svg*/
+  scale: 1.05;
+}
+
+.btn svg.border-clickable {
+  transition:
+    stroke 0.2s ease,
+    scale 0.2s ease;
+
+  stroke: var(--secundary-font); /*Cambia el color del contorno/borde del svg*/
+
+  stroke-width: 2px;
+  fill: transparent;
+}
+.btn svg.border-clickable:hover {
+  stroke: var(--primary-font); /*Cambia el color del contorno/borde del svg*/
+  scale: 1.05;
+}

@@ -1,4 +1,5 @@
 ---
+import Biblioteca from "@components/biblioteca/Biblioteca";
 import "../styles/global.css";
 ---
 
@@ -17,7 +18,7 @@ import "../styles/global.css";
       <nav class="nav flex flex-row justify-between w-full">
         <!-- Logo de spotify. -->
         <header class="icon p-3">
-          <a href="#">
+          <a href="/">
             <svg
               role="img"
               viewBox="0 0 24 24"
@@ -127,16 +128,16 @@ import "../styles/global.css";
         </div>
       </nav>
 
-      <menu>
+      <menu class="bg-[var(--interface-color)] rounded-2xl">
         <!-- Menú lateral con nustras playlists. -->
+        <Biblioteca client:load />
       </menu>
-      <section>
-        asdfasdf
+
+      <section class="bg-[var(--interface-focus-color)] rounded-2xl">
         <slot />
       </section>
 
-      <footer>
-        sfdsfds
+      <footer class="h-20">
         <!-- Player.tsx -->
       </footer>
     </main>
@@ -144,13 +145,6 @@ import "../styles/global.css";
 </html>
 
 <style>
-  :root {
-    --background-color: black;
-    --interface-color: #1f1f1f;
-    --interface-focus-color: #2c2c2c;
-    --primary-font: white;
-    --secundary-font: #b3b3b3;
-  }
   html,
   body {
     color: var(--primary-font);
@@ -169,7 +163,7 @@ import "../styles/global.css";
     grid-template-columns: auto 1fr; /* Una columna que abarque toda la pantalla */
     grid-template-rows: auto 1fr auto;
     gap: 0.5em;
-    padding: 1em;
+    padding: 0.5em;
     height: 100vh;
   }
 
@@ -187,33 +181,5 @@ import "../styles/global.css";
   }
   .icon svg {
     fill: var(--primary-font); /*Cambia el color del svg*/
-  }
-
-  .btn svg.clickable {
-    transition:
-      fill 0.2s ease,
-      scale 0.2s ease;
-    fill: var(--secundary-font); /*Cambia el color del svg*/
-  }
-  .btn svg.clickable:hover {
-    fill: var(--primary-font); /*Cambia el color del svg*/
-    scale: 1.05;
-  }
-
-  .btn svg.border-clickable {
-    transition:
-      stroke 0.2s ease,
-      scale 0.2s ease;
-
-    stroke: var(
-      --secundary-font
-    ); /*Cambia el color del contorno/borde del svg*/
-
-    stroke-width: 2px;
-    fill: transparent;
-  }
-  .btn svg.border-clickable:hover {
-    stroke: var(--primary-font); /*Cambia el color del contorno/borde del svg*/
-    scale: 1.05;
   }
 </style>

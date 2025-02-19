@@ -1,4 +1,4 @@
-type Playlist = {
+export type Playlist = {
   id: number;
   name: string;
   author: string;
@@ -11,7 +11,7 @@ type RelationSong = {
   addedAt: Date;
   song: Song;
 };
-type Song = {
+export type Song = {
   id: number;
   name: string;
   audio: string;
