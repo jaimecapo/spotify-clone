@@ -151,28 +151,29 @@ import "../styles/global.css";
   }
 
   .icon svg {
-    fill: var(--primary-font);
+    fill: var(--primary-font);/*Cambia el color del svg*/ 
   }
 
   .btn svg.clickable {
-    transition: fill 0.2s ease;
-    fill: var(
-      --secundary-font
-    ); /* Cambia este color del borde según necesites */
+    transition: fill 0.2s ease,
+                scale 0.2s ease;
+    fill: var(--secundary-font); /*Cambia el color del svg*/ 
   }
   .btn svg.clickable:hover {
-    fill: var(--primary-font); /* Cambia este color según necesites */
+    fill: var(--primary-font); /*Cambia el color del svg*/ 
+    scale: 1.05;
+
   }
 
   .btn svg.border-clickable {
-    transition: stroke 0.2s ease;
-    stroke: var(
-      --secundary-font
-    ); /* Cambia este color del borde según necesites */
+    transition: stroke 0.2s ease,
+                scale 0.2s ease;
+    stroke: var( --secundary-font ); /*Cambia el color del contorno/borde del svg*/ 
     stroke-width: 2px;
     fill: transparent;
   }
   .btn svg.border-clickable:hover {
-    stroke: var(--primary-font); /* Cambia este color según necesites */
+    stroke: var(--primary-font); /*Cambia el color del contorno/borde del svg*/ 
+    scale: 1.05;
   }
 </style>
