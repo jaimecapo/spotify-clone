@@ -1,19 +1,59 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { PLAYLISTS } from "@lib/data";
+import EmptyPlayList from "@components/EmptyPlaylistItem.astro";
+import RecentPlaylistItem from "@components/RecentPlaylistItem.astro";
 
 // Bienvenido a mi recreación de Spotify.
+const minPlaylists = 8;
+const type = Astro.url.searchParams.get("type");
+
+const onlyAlbums = type && type === "album";
+
+const filteredPlaylists = onlyAlbums
+  ? PLAYLISTS.filter((p) => p.isAlbum)
+  : PLAYLISTS;
+
+const playlistToRender =
+  filteredPlaylists.length >= minPlaylists
+    ? filteredPlaylists
+    : [
+        ...filteredPlaylists,
+        ...Array(minPlaylists - filteredPlaylists.length).fill(null),
+      ];
 ---
 
 <Layout>
   <div class="background-gradient absolute top-0 right-0 w-full h-30"></div>
-  <div class="content">
-    <div><button>Todo</button> <button>Albumes</button></div>
+  <div class="content p-5 flex flex-col gap-5">
+    <div class="type-btns flex flex-row gap-2">
+      <a
+        href="/"
+        class="active btn p-[8px_12px] has-[.active]:bg-white has-[.active]:text-[var(--interface-color)] rounded-4xl bg-[var(--interface-thinner-color)] hover:bg-[var(--interface-thinner-focus-color)] flex w-fit"
+        ><p class={`${!onlyAlbums ? "active" : ""}`}>Todo</p></a
+      >
+      <a
+        href="/?type=album"
+        class="active btn p-[8px_12px] has-[.active]:bg-white has-[.active]:text-[var(--interface-color)] rounded-4xl bg-[var(--interface-thinner-color)] hover:bg-[var(--interface-thinner-focus-color)] flex w-fit"
+      >
+        <p class={`${onlyAlbums ? "active" : ""}`}>Albumes</p></a
+      >
+    </div>
+    <div
+      class="last-playlists grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 md:grid-rows-4 grid-rows-8 gap-2"
+    >
+      {
+        playlistToRender.map((p) =>
+          p ? <RecentPlaylistItem playlist={p} /> : <EmptyPlayList />
+        )
+      }
+    </div>
   </div>
 </Layout>
 
 <style>
   :root {
-    --gradient-color: red;
+    --gradient-color: green;
   }
   .background-gradient {
     background: linear-gradient(
@@ -23,7 +63,6 @@ import Layout from "../layouts/Layout.astro";
     );
     z-index: 1;
     opacity: 0.2;
-    transition: background 0.5s ease;
   }
   .content {
     position: inherit;

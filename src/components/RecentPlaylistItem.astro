@@ -1,0 +1,23 @@
+---
+import type { Playlist } from "@lib/data";
+
+type Props = {
+  playlist: Playlist;
+};
+
+const { playlist } = Astro.props;
+---
+
+<a
+  href={`/playlists/${playlist.id}`}
+  class="recent-playlist-item flex gap-2 bg-[var(--interface-thinner-color)] hover:bg-[var(--interface-thinner-focus-color)] items-center"
+>
+  <img src={playlist.img} alt="" class="w-[64px] h-[64px]" />
+  <h3 class="text-normal">{playlist.name}</h3>
+</a>
+
+<style>
+  .recent-playlist-item {
+    transition: background-color 0.4s ease;
+  }
+</style>

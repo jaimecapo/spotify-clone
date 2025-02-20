@@ -4,6 +4,8 @@
   --background-color: black;
   --interface-color: #1f1f1f;
   --interface-focus-color: #2c2c2c;
+  --interface-thinner-color: #343434;
+  --interface-thinner-focus-color: #4f4f4f;
   --primary-font: white;
   --secundary-font: #b3b3b3;
 }
