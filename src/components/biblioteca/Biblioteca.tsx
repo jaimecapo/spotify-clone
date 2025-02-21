@@ -58,7 +58,7 @@ export default function Biblioteca() {
             />
           </div>
           {playlists.map((pl) => (
-            <BibliotecaItem playlist={pl} />
+            <BibliotecaItem playlist={pl} key={pl.id} />
           ))}
         </ul>
       </section>

@@ -3,6 +3,8 @@ import Biblioteca from "@components/biblioteca/Biblioteca";
 import "../styles/global.css";
 import "@fontsource-variable/outfit";
 import BtnLupa from "@components/BtnLupa";
+import Player from "@components/Player";
+import { ClientRouter } from "astro:transitions";
 ---
 
 <!doctype html>
@@ -127,7 +129,9 @@ import BtnLupa from "@components/BtnLupa";
 
       <footer class="h-20">
         <!-- Player.tsx -->
+        <Player transition:persist />
       </footer>
+      <ClientRouter />
     </main>
   </body>
 </html>

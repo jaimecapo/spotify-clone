@@ -1,9 +1,54 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-
+import { PLAYLISTS } from "@lib/data";
+import { SongsList } from "@components/playlists/SongsList";
 const { id } = Astro.params;
 
-console.log(id);
+const playlist = PLAYLISTS.find((p) => p.id === (id ? parseInt(id) : 0));
+if (!playlist) Astro.redirect("/");
 ---
 
-<Layout />
+<Layout>
+  {
+    playlist ? (
+      <div class="playlist p-10 flex flex-col gap-10">
+        <div class="playlist-header flex gap-8 items-end">
+          <img
+            src={playlist.img}
+            alt=""
+            class="w-48 h-48 rounded "
+            transition:name={`playlist-img id-${playlist.id}`}
+          />
+          <div class="flex flex-col gap-2">
+            <p>{playlist.isAlbum ? "Album" : "Lista"}</p>
+            <h2 class="text-5xl font-bold pb-4">{playlist.name}</h2>
+            <div class="flex gap-2">
+              <p>{playlist.author}</p>{" "}
+              <p class="text-[var(--secundary-font)]">
+                {playlist.songs.length} canciones,{" "}
+                {(
+                  playlist.songs.reduce(
+                    (previus, song) => previus + song.song.duration,
+                    0
+                  ) / 3600000
+                ).toFixed(0)}{" "}
+                horas aproximadamente.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="playlist-content ">
+          <SongsList songs={playlist.songs} />
+        </div>
+      </div>
+    ) : (
+      <div />
+    )
+  }
+</Layout>
+
+<style>
+  .playlist-header > img {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+</style>

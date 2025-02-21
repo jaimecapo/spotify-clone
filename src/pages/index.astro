@@ -1,8 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { PLAYLISTS } from "@lib/data";
-import EmptyPlayList from "@components/EmptyPlaylistItem.astro";
-import RecentPlaylistItem from "@components/RecentPlaylistItem.astro";
+import { PLAYLISTS, type Playlist } from "@lib/data";
+import EmptyPlayList from "@components/playlists/EmptyPlaylistItem.astro";
+import RecentPlaylistItem from "@components/playlists/RecentPlaylistItem.astro";
+import MediumPlaylist from "@components/playlists/MediumPlaylist.astro";
 
 // Bienvenido a mi recreación de Spotify.
 const minPlaylists = 8;
@@ -14,18 +15,20 @@ const filteredPlaylists = onlyAlbums
   ? PLAYLISTS.filter((p) => p.isAlbum)
   : PLAYLISTS;
 
-const playlistToRender =
+const playlistToRender: Playlist[] =
   filteredPlaylists.length >= minPlaylists
     ? filteredPlaylists
     : [
         ...filteredPlaylists,
         ...Array(minPlaylists - filteredPlaylists.length).fill(null),
       ];
+
+const recientes = playlistToRender.slice(0, 8);
 ---
 
 <Layout>
   <div class="background-gradient absolute top-0 right-0 w-full h-30"></div>
-  <div class="content p-5 flex flex-col gap-5">
+  <div class="content p-5 flex flex-col gap-8">
     <div class="type-btns flex flex-row gap-2">
       <a
         href="/"
@@ -43,10 +46,17 @@ const playlistToRender =
       class="last-playlists grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 md:grid-rows-4 grid-rows-8 gap-2"
     >
       {
-        playlistToRender.map((p) =>
+        recientes.map((p) =>
           p ? <RecentPlaylistItem playlist={p} /> : <EmptyPlayList />
         )
       }
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-bold mb-3">Hecho para ti.</h2>
+      <div class="flex gap-2">
+        {PLAYLISTS.map((p) => <MediumPlaylist playlist={p} />)}
+      </div>
     </div>
   </div>
 </Layout>
