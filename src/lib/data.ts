@@ -42,7 +42,7 @@ export const PLAYLISTS: Playlist[] = [
           },
           name: "More than Friends",
           artists: ["INNA", "Daddy Yankie"],
-          duration: 237795,
+          duration: 169,
         },
       },
       {
@@ -57,7 +57,7 @@ export const PLAYLISTS: Playlist[] = [
           },
           name: "SINCERO",
           artists: ["Recycled J"],
-          duration: 196240,
+          duration: 153,
         },
       },
       {
@@ -72,7 +72,7 @@ export const PLAYLISTS: Playlist[] = [
             cover:
               "https://i.scdn.co/image/ab67616d00001e02bbd45c8d36e0e045ef640411",
           },
-          duration: 228836,
+          duration: 166,
         },
       },
       {
@@ -87,7 +87,7 @@ export const PLAYLISTS: Playlist[] = [
               "https://i.scdn.co/image/ab67616d00001e021aaada2ba7cfd29031862430",
           },
           artists: ["Cruz Cafuné"],
-          duration: 250234,
+          duration: 163,
         },
       },
       {
@@ -102,7 +102,7 @@ export const PLAYLISTS: Playlist[] = [
               "https://i.scdn.co/image/ab67616d00001e020579a9f20ec52281f4447c73",
           },
           artists: ["Rels B"],
-          duration: 179078,
+          duration: 167,
         },
       },
       {
@@ -117,7 +117,7 @@ export const PLAYLISTS: Playlist[] = [
               "https://i.scdn.co/image/ab67616d00001e020579a9f20ec52281f4447c73",
           },
           artists: ["Rels B"],
-          duration: 245190,
+          duration: 140,
         },
       },
       {
@@ -132,7 +132,7 @@ export const PLAYLISTS: Playlist[] = [
               "https://i.scdn.co/image/ab67616d00001e020579a9f20ec52281f4447c73",
           },
           artists: ["Rels B"],
-          duration: 194851,
+          duration: 115,
         },
       },
     ],
@@ -157,7 +157,7 @@ export const PLAYLISTS: Playlist[] = [
               "https://i.scdn.co/image/ab67616d00001e020579a9f20ec52281f4447c73",
           },
           artists: ["Rels B"],
-          duration: 179078,
+          duration: 167,
         },
       },
       {
@@ -172,7 +172,7 @@ export const PLAYLISTS: Playlist[] = [
               "https://i.scdn.co/image/ab67616d00001e020579a9f20ec52281f4447c73",
           },
           artists: ["Rels B"],
-          duration: 245190,
+          duration: 140,
         },
       },
       {
@@ -187,7 +187,7 @@ export const PLAYLISTS: Playlist[] = [
               "https://i.scdn.co/image/ab67616d00001e020579a9f20ec52281f4447c73",
           },
           artists: ["Rels B"],
-          duration: 182688,
+          duration: 120,
         },
       },
       {
@@ -202,7 +202,7 @@ export const PLAYLISTS: Playlist[] = [
               "https://i.scdn.co/image/ab67616d00001e020579a9f20ec52281f4447c73",
           },
           artists: ["Rels B"],
-          duration: 194851,
+          duration: 115,
         },
       },
     ],
@@ -227,7 +227,7 @@ export const PLAYLISTS: Playlist[] = [
             cover:
               "https://i.scdn.co/image/ab67616d00001e02bbd45c8d36e0e045ef640411",
           },
-          duration: 228836,
+          duration: 166,
         },
       },
       {
@@ -242,7 +242,7 @@ export const PLAYLISTS: Playlist[] = [
               "https://i.scdn.co/image/ab67616d00001e021aaada2ba7cfd29031862430",
           },
           artists: ["Cruz Cafuné"],
-          duration: 250234,
+          duration: 163,
         },
       },
       {
@@ -257,7 +257,7 @@ export const PLAYLISTS: Playlist[] = [
               "https://i.scdn.co/image/ab67616d00001e020579a9f20ec52281f4447c73",
           },
           artists: ["Rels B"],
-          duration: 179078,
+          duration: 167,
         },
       },
     ],
@@ -277,7 +277,7 @@ export const SONGS = [
       },
       name: "More than Friends",
       artists: ["INNA", "Daddy Yankie"],
-      duration: 237795,
+      duration: 169,
     },
   },
   {
@@ -292,7 +292,7 @@ export const SONGS = [
       },
       name: "SINCERO",
       artists: ["Recycled J"],
-      duration: 196240,
+      duration: 153,
     },
   },
   {
@@ -307,7 +307,7 @@ export const SONGS = [
         cover:
           "https://i.scdn.co/image/ab67616d00001e02bbd45c8d36e0e045ef640411",
       },
-      duration: 228836,
+      duration: 166,
     },
   },
   {
@@ -322,7 +322,7 @@ export const SONGS = [
           "https://i.scdn.co/image/ab67616d00001e021aaada2ba7cfd29031862430",
       },
       artists: ["Cruz Cafuné"],
-      duration: 250234,
+      duration: 163,
     },
   },
   {
@@ -337,7 +337,7 @@ export const SONGS = [
           "https://i.scdn.co/image/ab67616d00001e020579a9f20ec52281f4447c73",
       },
       artists: ["Rels B"],
-      duration: 179078,
+      duration: 167,
     },
   },
   {
@@ -352,7 +352,7 @@ export const SONGS = [
           "https://i.scdn.co/image/ab67616d00001e020579a9f20ec52281f4447c73",
       },
       artists: ["Rels B"],
-      duration: 245190,
+      duration: 140,
     },
   },
   {
@@ -367,7 +367,7 @@ export const SONGS = [
           "https://i.scdn.co/image/ab67616d00001e020579a9f20ec52281f4447c73",
       },
       artists: ["Rels B"],
-      duration: 182688,
+      duration: 120,
     },
   },
   {
@@ -382,7 +382,7 @@ export const SONGS = [
           "https://i.scdn.co/image/ab67616d00001e020579a9f20ec52281f4447c73",
       },
       artists: ["Rels B"],
-      duration: 194851,
+      duration: 115,
     },
   },
 ];

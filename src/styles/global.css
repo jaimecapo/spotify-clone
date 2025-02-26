@@ -41,6 +41,7 @@
   border-radius: 0 0.5em 0.5em 0;
   overflow: hidden;
 }
+
 ::-webkit-scrollbar-thumb {
   background: rgba(128, 128, 128, 0.7);
   border-radius: 0 0.5em 0.5em 0;

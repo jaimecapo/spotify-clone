@@ -1,6 +1,7 @@
-import { currentSong } from "@components/Player";
+import { stateSong } from "@components/player/Player";
 import type { Song } from "@lib/data";
 import dayjs from "dayjs";
+import { convertSeconds } from "src/utils/timeConversions";
 
 interface Props {
   song: Song;
@@ -8,18 +9,14 @@ interface Props {
   addedAt: Date;
 }
 export function SongItem({ song, index, addedAt }: Props) {
-  const convertirAMinutos = (duration: number) => {
-    const minutes = Math.floor(duration / 60000);
-    const seconds = Math.round((duration % 60000) / 1000);
-
-    return parseFloat(`${minutes}.${seconds}`);
-  };
-
-  const duration = convertirAMinutos(song.duration);
+  const duration = convertSeconds(song.duration);
 
   const handleChangeSong = () => {
-    console.log("cambiando");
-    currentSong.set(song);
+    stateSong.set({
+      isPlaying: false,
+      volumen: 1,
+      currentSong: song,
+    });
   };
 
   return (
@@ -35,7 +32,7 @@ export function SongItem({ song, index, addedAt }: Props) {
       </td>
       <td className="p-2">{song.album?.name}</td>
       <td className="p-2">{dayjs(addedAt).format("DD MMMM YYYY")}</td>
-      <td className="p-2">{duration.toFixed(2).replace(".", ":")}</td>
+      <td className="p-2">{`${duration.mins}:${duration.secs}`}</td>
     </tr>
   );
 }
