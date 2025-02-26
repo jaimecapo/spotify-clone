@@ -122,14 +122,18 @@ import { ClientRouter } from "astro:transitions";
       </menu>
 
       <section
-        class="bg-[var(--interface-color)] rounded-[10px] relative overflow-hidden"
+        class="bg-[var(--interface-color)] rounded-[10px] relative overflow-hidden overflow-y-scroll"
       >
         <slot />
       </section>
 
       <footer class="h-20">
         <!-- Player.tsx -->
-        <Player transition:persist />
+        <Player
+          client:load
+          transition:persist
+          transition:name="player-controls"
+        />
       </footer>
       <ClientRouter />
     </main>

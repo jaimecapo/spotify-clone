@@ -36,27 +36,27 @@ export default function Biblioteca() {
             </svg>
           </span>
         </button>
-        <h2 className="font-medium text-[1.1em] text-[var(--secundary-font)]">
+        <h2 className="font-medium text-[1.1em] text-[var(--secundary-font)] hidden lg:flex">
           Tu Biblioteca
         </h2>
       </header>
-      <section className="playlists">
-        <ul className="flex flex-col p-2">
-          <div className="playlists-filters grid grid-cols-[auto_1fr] gap-2 p-2 items-center">
-            <BtnLupa
-              height={20}
-              onClick={() => {
-                return;
-              }}
-            />
-            <input
-              className="rounded-[5px]"
-              type="text"
-              name="termino"
-              id="termino"
-              onChange={(e) => setTermino(e.currentTarget.value)}
-            />
-          </div>
+      <section className="playlists p-2">
+        <div className="playlists-filters grid grid-cols-[auto_1fr] gap-2 p-2 items-center">
+          <BtnLupa
+            height={20}
+            onClick={() => {
+              return;
+            }}
+          />
+          <input
+            className="rounded-[5px] hidden lg:flex"
+            type="text"
+            name="termino"
+            id="termino"
+            onChange={(e) => setTermino(e.currentTarget.value)}
+          />
+        </div>
+        <ul className="flex flex-col ">
           {playlists.map((pl) => (
             <BibliotecaItem playlist={pl} key={pl.id} />
           ))}

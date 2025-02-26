@@ -1,9 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { PLAYLISTS, type Playlist } from "@lib/data";
-import EmptyPlayList from "@components/playlists/EmptyPlaylistItem.astro";
-import RecentPlaylistItem from "@components/playlists/RecentPlaylistItem.astro";
-import MediumPlaylist from "@components/playlists/MediumPlaylist.astro";
+import EmptyPlayList from "@components/playlists/visualizers/EmptyVisualizer.astro";
+import RecentPlaylistItem from "@components/playlists/visualizers/LittleVisualizer.astro";
+import MediumPlaylist from "@components/playlists/visualizers/MediumVisualizer.astro";
 
 // Bienvenido a mi recreación de Spotify.
 const minPlaylists = 8;

@@ -22,3 +22,8 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+
+# notas personales de funcionamiento de api.
+doc/notes/
+doc/notes/*

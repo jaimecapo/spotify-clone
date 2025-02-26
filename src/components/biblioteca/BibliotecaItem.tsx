@@ -30,7 +30,7 @@ export default function BibliotecaItem({ playlist }: Props) {
           </span>
         </button>
 
-        <div>
+        <div className="hidden lg:block">
           <h3 className="font-normal ">{playlist.name}</h3>
           <div className="flex gap-2 text-[var(--secundary-font)] text-[0.90em]">
             <p>

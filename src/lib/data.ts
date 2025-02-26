@@ -34,7 +34,7 @@ export const PLAYLISTS: Playlist[] = [
         addedAt: new Date(),
         song: {
           id: 1,
-          audio: "",
+          audio: "Candy Apple Blue - Surf Ninja 3.mp3",
           album: {
             name: "Party Never Ends, Pt. 1 (Deluxe Edition)",
             cover:
@@ -49,7 +49,7 @@ export const PLAYLISTS: Playlist[] = [
         addedAt: new Date(),
         song: {
           id: 2,
-          audio: "",
+          audio: "Chichadoodledoo - Surf Ninja 3.mp3",
           album: {
             name: "SAN JORGE",
             cover:
@@ -64,7 +64,7 @@ export const PLAYLISTS: Playlist[] = [
         addedAt: new Date(),
         song: {
           id: 3,
-          audio: "",
+          audio: "Darqueness - Surf Ninja 3.mp3",
           name: "CAFé CON RON",
           artists: ["Bad Bunny", "Los planeros de la cresta"],
           album: {
@@ -80,7 +80,7 @@ export const PLAYLISTS: Playlist[] = [
         song: {
           id: 4,
           name: "ISSEY MIYAKE",
-          audio: "",
+          audio: "El Dogfather - Surf Ninja 3.mp3",
           album: {
             name: "VISIÓN TÚNEL",
             cover:
@@ -95,7 +95,7 @@ export const PLAYLISTS: Playlist[] = [
         song: {
           id: 5,
           name: "Es Mejor",
-          audio: "",
+          audio: "House of Mango - Surf Ninja 3.mp3",
           album: {
             name: "Flakk Daniel's L",
             cover:
@@ -110,7 +110,7 @@ export const PLAYLISTS: Playlist[] = [
         song: {
           id: 6,
           name: "Buenos Genes",
-          audio: "",
+          audio: "Jumpin Off - Surf Ninja 3.mp3",
           album: {
             name: "Flakk Daniel's L",
             cover:
@@ -125,7 +125,7 @@ export const PLAYLISTS: Playlist[] = [
         song: {
           id: 8,
           name: "Lejos de Tí",
-          audio: "",
+          audio: "No Flubs - Surf Ninja 3.mp3",
           album: {
             name: "Flakk Daniel's L",
             cover:
@@ -150,7 +150,7 @@ export const PLAYLISTS: Playlist[] = [
         song: {
           id: 5,
           name: "Es Mejor",
-          audio: "",
+          audio: "House of Mango - Surf Ninja 3.mp3",
           album: {
             name: "Flakk Daniel's L",
             cover:
@@ -165,7 +165,7 @@ export const PLAYLISTS: Playlist[] = [
         song: {
           id: 6,
           name: "Buenos Genes",
-          audio: "",
+          audio: "Jumpin Off - Surf Ninja 3.mp3",
           album: {
             name: "Flakk Daniel's L",
             cover:
@@ -180,7 +180,7 @@ export const PLAYLISTS: Playlist[] = [
         song: {
           id: 7,
           name: "Flakk's Plan",
-          audio: "",
+          audio: "Regular Fun - Surf Ninja 3.mp3",
           album: {
             name: "Flakk Daniel's L",
             cover:
@@ -195,7 +195,7 @@ export const PLAYLISTS: Playlist[] = [
         song: {
           id: 8,
           name: "Lejos de Tí",
-          audio: "",
+          audio: "No Flubs - Surf Ninja 3.mp3",
           album: {
             name: "Flakk Daniel's L",
             cover:
@@ -219,7 +219,7 @@ export const PLAYLISTS: Playlist[] = [
         addedAt: new Date(),
         song: {
           id: 3,
-          audio: "",
+          audio: "Darqueness - Surf Ninja 3.mp3",
           name: "CAFé CON RON",
           artists: ["Bad Bunny", "Los planeros de la cresta"],
           album: {
@@ -235,7 +235,7 @@ export const PLAYLISTS: Playlist[] = [
         song: {
           id: 4,
           name: "ISSEY MIYAKE",
-          audio: "",
+          audio: "El Dogfather - Surf Ninja 3.mp3",
           album: {
             name: "VISIÓN TÚNEL",
             cover:
@@ -250,7 +250,7 @@ export const PLAYLISTS: Playlist[] = [
         song: {
           id: 5,
           name: "Es Mejor",
-          audio: "",
+          audio: "House of Mango - Surf Ninja 3.mp3",
           album: {
             name: "Flakk Daniel's L",
             cover:
@@ -266,91 +266,123 @@ export const PLAYLISTS: Playlist[] = [
 
 export const SONGS = [
   {
-    id: 1,
-    audio: "",
-    album: {
-      name: "Party Never Ends, Pt. 1 (Deluxe Edition)",
-      cover: "https://i.scdn.co/image/ab67616d00001e027ee1a9efdb2c8835ff9fdb79",
+    addedAt: new Date(),
+    song: {
+      id: 1,
+      audio: "Candy Apple Blue - Surf Ninja 3.mp3'",
+      album: {
+        name: "Party Never Ends, Pt. 1 (Deluxe Edition)",
+        cover:
+          "https://i.scdn.co/image/ab67616d00001e027ee1a9efdb2c8835ff9fdb79",
+      },
+      name: "More than Friends",
+      artists: ["INNA", "Daddy Yankie"],
+      duration: 237795,
     },
-    name: "More than Friends",
-    artists: ["INNA", "Daddy Yankie"],
-    duration: 237795,
   },
   {
-    id: 2,
-    audio: "",
-    album: {
-      name: "SAN JORGE",
-      cover: "https://i.scdn.co/image/ab67616d00001e02e74c27199179e71e0998da68",
+    addedAt: new Date(),
+    song: {
+      id: 2,
+      audio: "Chichadoodledoo - Surf Ninja 3.mp3",
+      album: {
+        name: "SAN JORGE",
+        cover:
+          "https://i.scdn.co/image/ab67616d00001e02e74c27199179e71e0998da68",
+      },
+      name: "SINCERO",
+      artists: ["Recycled J"],
+      duration: 196240,
     },
-    name: "SINCERO",
-    artists: ["Recycled J"],
-    duration: 196240,
   },
   {
-    id: 3,
-    audio: "",
-    name: "CAFé CON RON",
-    artists: ["Bad Bunny", "Los planeros de la cresta"],
-    album: {
-      name: "DeBÍ TiRAR MáS FOToS",
-      cover: "https://i.scdn.co/image/ab67616d00001e02bbd45c8d36e0e045ef640411",
+    addedAt: new Date(),
+    song: {
+      id: 3,
+      audio: "Darqueness - Surf Ninja 3.mp3",
+      name: "CAFé CON RON",
+      artists: ["Bad Bunny", "Los planeros de la cresta"],
+      album: {
+        name: "DeBÍ TiRAR MáS FOToS",
+        cover:
+          "https://i.scdn.co/image/ab67616d00001e02bbd45c8d36e0e045ef640411",
+      },
+      duration: 228836,
     },
-    duration: 228836,
   },
   {
-    id: 4,
-    name: "ISSEY MIYAKE",
-    audio: "",
-    album: {
-      name: "VISIÓN TÚNEL",
-      cover: "https://i.scdn.co/image/ab67616d00001e021aaada2ba7cfd29031862430",
+    addedAt: new Date(),
+    song: {
+      id: 4,
+      name: "ISSEY MIYAKE",
+      audio: "El Dogfather - Surf Ninja 3.mp3",
+      album: {
+        name: "VISIÓN TÚNEL",
+        cover:
+          "https://i.scdn.co/image/ab67616d00001e021aaada2ba7cfd29031862430",
+      },
+      artists: ["Cruz Cafuné"],
+      duration: 250234,
     },
-    artists: ["Cruz Cafuné"],
-    duration: 250234,
   },
   {
-    id: 5,
-    name: "Es Mejor",
-    audio: "",
-    album: {
-      name: "Flakk Daniel's L",
-      cover: "https://i.scdn.co/image/ab67616d00001e020579a9f20ec52281f4447c73",
+    addedAt: new Date(),
+    song: {
+      id: 5,
+      name: "Es Mejor",
+      audio: "House of Mango - Surf Ninja 3.mp3",
+      album: {
+        name: "Flakk Daniel's L",
+        cover:
+          "https://i.scdn.co/image/ab67616d00001e020579a9f20ec52281f4447c73",
+      },
+      artists: ["Rels B"],
+      duration: 179078,
     },
-    artists: ["Rels B"],
-    duration: 179078,
   },
   {
-    id: 6,
-    name: "Buenos Genes",
-    audio: "",
-    album: {
-      name: "Flakk Daniel's L",
-      cover: "https://i.scdn.co/image/ab67616d00001e020579a9f20ec52281f4447c73",
+    addedAt: new Date(),
+    song: {
+      id: 6,
+      name: "Buenos Genes",
+      audio: "Jumpin Off - Surf Ninja 3.mp3",
+      album: {
+        name: "Flakk Daniel's L",
+        cover:
+          "https://i.scdn.co/image/ab67616d00001e020579a9f20ec52281f4447c73",
+      },
+      artists: ["Rels B"],
+      duration: 245190,
     },
-    artists: ["Rels B"],
-    duration: 245190,
   },
   {
-    id: 7,
-    name: "Flakk's Plan",
-    audio: "",
-    album: {
-      name: "Flakk Daniel's L",
-      cover: "https://i.scdn.co/image/ab67616d00001e020579a9f20ec52281f4447c73",
+    addedAt: new Date(),
+    song: {
+      id: 7,
+      name: "Flakk's Plan",
+      audio: "Regular Fun - Surf Ninja 3.mp3",
+      album: {
+        name: "Flakk Daniel's L",
+        cover:
+          "https://i.scdn.co/image/ab67616d00001e020579a9f20ec52281f4447c73",
+      },
+      artists: ["Rels B"],
+      duration: 182688,
     },
-    artists: ["Rels B"],
-    duration: 182688,
   },
   {
-    id: 8,
-    name: "Lejos de Tí",
-    audio: "",
-    album: {
-      name: "Flakk Daniel's L",
-      cover: "https://i.scdn.co/image/ab67616d00001e020579a9f20ec52281f4447c73",
+    addedAt: new Date(),
+    song: {
+      id: 8,
+      name: "Lejos de Tí",
+      audio: "No Flubs - Surf Ninja 3.mp3",
+      album: {
+        name: "Flakk Daniel's L",
+        cover:
+          "https://i.scdn.co/image/ab67616d00001e020579a9f20ec52281f4447c73",
+      },
+      artists: ["Rels B"],
+      duration: 194851,
     },
-    artists: ["Rels B"],
-    duration: 194851,
   },
 ];

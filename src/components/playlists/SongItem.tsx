@@ -1,3 +1,4 @@
+import { currentSong } from "@components/Player";
 import type { Song } from "@lib/data";
 import dayjs from "dayjs";
 
@@ -16,9 +17,16 @@ export function SongItem({ song, index, addedAt }: Props) {
 
   const duration = convertirAMinutos(song.duration);
 
+  const handleChangeSong = () => {
+    console.log("cambiando");
+    currentSong.set(song);
+  };
+
   return (
     <tr>
-      <td className="p-2">{index}</td>
+      <td className="p-2">
+        <button onClick={handleChangeSong}>{index}</button>
+      </td>
       <td className="p-2 flex items-center gap-2">
         <img src={song.album?.cover} className="w-[42px] h-[42px]" />
         <div>

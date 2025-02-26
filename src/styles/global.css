@@ -35,3 +35,13 @@
   stroke: var(--primary-font); /*Cambia el color del contorno/borde del svg*/
   scale: 1.05;
 }
+
+::-webkit-scrollbar {
+  background: transparent;
+  border-radius: 0 0.5em 0.5em 0;
+  overflow: hidden;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.7);
+  border-radius: 0 0.5em 0.5em 0;
+}
