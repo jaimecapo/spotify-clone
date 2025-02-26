@@ -8,6 +8,7 @@ interface Props {
   audio: HTMLAudioElement | null;
   isPlaying: boolean;
 }
+
 export function ProgressController({ audio, currentSong, isPlaying }: Props) {
   const [currentTime, setCurrentTime] = useState(0);
 
@@ -26,7 +27,7 @@ export function ProgressController({ audio, currentSong, isPlaying }: Props) {
     if (audio) setCurrentTime(audio?.currentTime);
   };
 
-  if (!currentSong) return <></>;
+  if (!currentSong) return emptyProgressBar;
 
   const formatedCurrent = convertSeconds(parseInt(currentTime.toFixed(0)));
   const formatedMax = convertSeconds(currentSong?.duration);
@@ -48,3 +49,19 @@ export function ProgressController({ audio, currentSong, isPlaying }: Props) {
     </div>
   );
 }
+
+//respuesta en caso de no tener canción.
+const emptyProgressBar = (
+  <div className="flex w-full gap-2">
+    <p>00:00</p>
+    <Slider
+      max={0}
+      min={0}
+      current={0}
+      id="current-song-time"
+      disabled={true}
+      name="current-song-time"
+    />
+    <p>00:00</p>
+  </div>
+);

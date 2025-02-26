@@ -7,7 +7,8 @@ interface Props {
 
 export function VolumeController({ audio }: Props) {
   const [currentVolumen, setCurrentVolumen] = useState(20);
-  if (!audio) return <></>;
+
+  if (!audio) return emptyVolumen(currentVolumen);
 
   return (
     <div
@@ -21,6 +22,7 @@ export function VolumeController({ audio }: Props) {
         max={100}
         id="volume-control"
         name="volume-control"
+        disabled={false}
         onChange={(value) => {
           setCurrentVolumen(value);
           audio.volume = value / 100;
@@ -29,3 +31,19 @@ export function VolumeController({ audio }: Props) {
     </div>
   );
 }
+
+const emptyVolumen = (currentVolumen: number) => (
+  <div
+    id="player-sound-controls"
+    className={`flex flex-row justify-end items-center`}
+  >
+    <Slider
+      current={currentVolumen}
+      min={0}
+      max={100}
+      id="volume-control"
+      name="volume-control"
+      disabled={true}
+    />
+  </div>
+);
