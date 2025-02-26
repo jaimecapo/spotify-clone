@@ -7,7 +7,7 @@ import { PlayerHeader } from "./PlayerHeader";
 import { VolumeController } from "@components/player/controlers/VolumeControler";
 import { PlayerController } from "@components/player/controlers/PlayControler";
 
-export const stateSong = atom<{
+export const stateStore = atom<{
   isPlaying: boolean;
   volumen: number;
   currentSong: Song | null;
@@ -18,7 +18,7 @@ export const stateSong = atom<{
 });
 
 export default function Player() {
-  const state = useStore(stateSong);
+  const state = useStore(stateStore);
   const { isPlaying, currentSong, volumen } = state;
   const audio = useRef<HTMLAudioElement>(null);
 
@@ -29,7 +29,7 @@ export default function Player() {
   }, [currentSong]);
 
   const handleChange = () => {
-    stateSong.set({ ...state, isPlaying: !state.isPlaying });
+    stateStore.set({ ...state, isPlaying: !state.isPlaying });
 
     //reproducir o parar la música
     if (audio.current) {

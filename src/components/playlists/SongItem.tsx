@@ -1,4 +1,4 @@
-import { stateSong } from "@components/player/Player";
+import { stateStore } from "@components/player/Player";
 import type { Song } from "@lib/data";
 import dayjs from "dayjs";
 import { convertSeconds } from "src/utils/timeConversions";
@@ -12,7 +12,7 @@ export function SongItem({ song, index, addedAt }: Props) {
   const duration = convertSeconds(song.duration);
 
   const handleChangeSong = () => {
-    stateSong.set({
+    stateStore.set({
       isPlaying: false,
       volumen: 1,
       currentSong: song,
