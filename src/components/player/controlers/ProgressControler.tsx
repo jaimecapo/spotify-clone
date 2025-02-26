@@ -31,6 +31,7 @@ export function ProgressController({ audio, currentSong, isPlaying }: Props) {
 
   const formatedCurrent = convertSeconds(parseInt(currentTime.toFixed(0)));
   const formatedMax = convertSeconds(currentSong?.duration);
+
   return (
     <div className="flex w-full gap-2">
       <p>{`${formatedCurrent.mins}:${formatedCurrent.secs}`}</p>

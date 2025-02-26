@@ -32,6 +32,7 @@ export function VolumeController({ audio }: Props) {
   );
 }
 
+//respuesta en caso de no tener canción.
 const emptyVolumen = (currentVolumen: number) => (
   <div
     id="player-sound-controls"
