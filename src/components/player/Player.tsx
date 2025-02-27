@@ -13,12 +13,14 @@ export type State = {
   playlist: Playlist | null;
 };
 
+//store con la información del la música, playlist.
 export const stateStore = atom<State>({
   isPlaying: false,
   currentSong: null,
   playlist: null,
 });
 
+//Controlador de la música.
 export default function Player() {
   const state = useStore(stateStore);
   const { isPlaying, playlist, currentSong } = state;

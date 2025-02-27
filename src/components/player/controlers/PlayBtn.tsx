@@ -8,6 +8,7 @@ interface Props {
   handleChange?: () => void;
 }
 
+//Componente personalizable de botón de play pause.
 export function PlayBtn({
   isPlaying,
   customStyle = false,
@@ -40,6 +41,7 @@ export function PlayBtn({
   );
 }
 
+//svg del Play
 const Play = () => (
   <svg
     data-encore-id="icon-play-btn"
@@ -52,6 +54,7 @@ const Play = () => (
   </svg>
 );
 
+//svg de la Pause
 const Pause = () => (
   <svg
     data-encore-id="icon-play-btn"

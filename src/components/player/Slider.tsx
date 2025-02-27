@@ -8,6 +8,8 @@ interface Props {
   disabled?: boolean;
   onChange?: (value: number) => void;
 }
+
+//Slider para el general para utilizar en el volumen y la barra de tiempo.
 export default function Slider({
   id,
   current,

@@ -11,6 +11,7 @@ interface Props {
   position: number | null;
 }
 
+//Controles de pause/play y cambio de canción.
 export function PlayerController({
   isPlaying,
   state,

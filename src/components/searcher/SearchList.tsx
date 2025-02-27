@@ -5,6 +5,8 @@ interface Props {
   songs: Song[];
   className: string;
 }
+
+//Modal con los resultados de la búsqueda.
 export function SearchList({ songs, className }: Props) {
   return (
     <div

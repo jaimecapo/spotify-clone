@@ -2,7 +2,9 @@ type Props = {
   height: number;
   onClick?: () => any;
 };
-export default function btnLupa({ height, onClick }: Props) {
+
+//Botón de busqueda.
+export default function btnLupa({ height }: Props) {
   return (
     <button className="btn" type="button" title="find-btn">
       <span

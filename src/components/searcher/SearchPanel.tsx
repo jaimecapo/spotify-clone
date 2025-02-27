@@ -1,5 +1,5 @@
 import { SONGS, type Song } from "@lib/data";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import BtnLupa from "../BtnLupa";
 import { SearchList } from "./SearchList";
 
@@ -7,6 +7,7 @@ export function SearchInput() {
   const [termino, setTermino] = useState("");
   const [hidden, setHidden] = useState(true);
 
+  //memorizado para que no se calcule a menos q cambies el termino.
   const searchOptions: Song[] = useMemo(
     () =>
       SONGS.filter((song) => {
