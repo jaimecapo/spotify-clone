@@ -4,9 +4,8 @@ import { SearchOption } from "./SearchOptions";
 interface Props {
   songs: Song[];
   className: string;
-  setHidden: () => void;
 }
-export function SearchList({ songs, className, setHidden }: Props) {
+export function SearchList({ songs, className }: Props) {
   return (
     <div
       className={`${className} block ${className.includes("hide") ? "hidden" : ""} absolute top-[105%] w-full left-0 p-[1.5em_0.5em_0.5em_0.5em] md:p-[3em_1em_1em_1em] bg-[var(--interface-color)] rounded-2xl -z-[-2]`}

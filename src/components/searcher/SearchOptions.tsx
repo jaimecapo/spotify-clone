@@ -46,7 +46,11 @@ export function SearchOption({ song }: Props) {
       </div>
 
       <div>
-        <p>{song.name}</p>
+        <p
+          className={`${currentSong?.id === song.id ? "text-green-400" : "text-[var(--primary-font)]"}`}
+        >
+          {song.name}
+        </p>
         <p className="hidden md:block text-wrap">{song.album?.name}</p>
       </div>
     </ul>

@@ -67,13 +67,7 @@ export function SearchInput() {
           </svg>
         </span>
       </button>
-      <SearchList
-        songs={searchOptions}
-        className={hidden ? "hide" : ""}
-        setHidden={() => {
-          setHidden(true);
-        }}
-      />
+      <SearchList songs={searchOptions} className={hidden ? "hide" : ""} />
     </form>
   );
 }
