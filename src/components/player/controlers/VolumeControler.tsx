@@ -5,6 +5,7 @@ interface Props {
   audio: HTMLAudioElement | null;
 }
 
+//Controlador de volumen
 export function VolumeController({ audio }: Props) {
   const [currentVolumen, setCurrentVolumen] = useState(100);
 

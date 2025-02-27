@@ -92,17 +92,19 @@ import { ClientRouter } from "astro:transitions";
         </div>
       </nav>
 
+      <!-- Menú lateral con nustras playlists. -->
       <menu class="bg-[var(--interface-color)] rounded-[10px]">
-        <!-- Menú lateral con nustras playlists. -->
         <Biblioteca client:load />
       </menu>
 
+      <!-- Main de la aplicación con la lista de canciones y playlists. -->
       <section
         class="bg-[var(--interface-color)] rounded-[10px] relative overflow-hidden overflow-y-scroll"
       >
         <slot />
       </section>
 
+      <!-- Footer con el control de música. -->
       <footer class="h-20">
         <!-- Player.tsx -->
         <Player
@@ -111,6 +113,8 @@ import { ClientRouter } from "astro:transitions";
           transition:name="player-controls"
         />
       </footer>
+
+      <!-- Componente de enrutamiento que se puede agregar al <head> de una sola página para controlar las transiciones de página al navegar a otra página. -->
       <ClientRouter />
     </main>
   </body>

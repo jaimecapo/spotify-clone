@@ -3,6 +3,7 @@ import BibliotecaItem from "./BibliotecaItem";
 import BtnLupa from "@components/BtnLupa";
 import { useMemo, useState } from "react";
 
+//Sector laterla de la web con la biblioteca de álbumes.
 export default function Biblioteca() {
   const [termino, setTermino] = useState("");
 
