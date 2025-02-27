@@ -10,6 +10,7 @@ const { playlist } = Astro.props;
 <div>
   <a
     href={`/playlists/${playlist.id}`}
+    title="open playlist"
     class="recent-playlist-item flex flex-col flex-wrap gap-2 bg-[var(--interface-color)] hover:bg-[var(--interface-focus-color)] p-4 items-center rounded h-full"
   >
     <img

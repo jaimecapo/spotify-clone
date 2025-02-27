@@ -35,6 +35,8 @@ export function SongItem({ song, playlist, index, addedAt }: Props) {
       <td className="w-14 h-14 group">
         <button
           className={`${!!(currentSong?.id === song.id && clientIsPlaying) ? "hidden" : "block"} group-hover:hidden m-auto`}
+          type="button"
+          title="song-play-btn"
           onClick={handleChangeSong}
         >
           {index}
@@ -46,7 +48,11 @@ export function SongItem({ song, playlist, index, addedAt }: Props) {
         />
       </td>
       <td className="p-2 min-w-[200px] flex items-center gap-2 overflow-hidden">
-        <img src={song.album?.cover} className="w-[42px] h-[42px]" />
+        <img
+          src={song.album?.cover}
+          className="w-[42px] h-[42px] object-cover"
+          alt={`Imagen: ${song.name}`}
+        />
         <div>
           <p
             className={`${currentSong?.id === song.id ? "text-green-400" : "text-[var(--primary-font)]"}`}

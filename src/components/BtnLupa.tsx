@@ -4,7 +4,7 @@ type Props = {
 };
 export default function btnLupa({ height, onClick }: Props) {
   return (
-    <button className="btn">
+    <button className="btn" type="button" title="find-btn">
       <span
         aria-hidden="true"
         className="IconWrapper__Wrapper-sc-16usrgb-0 hYdsxw"

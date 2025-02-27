@@ -20,6 +20,7 @@ export function PlayBtn({
   return (
     <button
       type="button"
+      title="play-btn"
       className={
         customStyle
           ? `btn ${disabled} ${className}`

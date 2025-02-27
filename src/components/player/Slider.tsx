@@ -19,16 +19,22 @@ export default function Slider({
   onChange = () => {},
 }: Props) {
   return (
-    <input
-      type="range"
-      value={current}
-      name={name}
-      min={min}
-      max={max}
-      id={id}
-      disabled={disabled}
-      className={`bg-[var(--interface-color)] hover:bg-[var(--interface-focus-color)]  rounded-4xl appearance-none ${className}`}
-      onChange={(value) => onChange(parseInt(value.currentTarget.value))}
-    />
+    <div className={className}>
+      <label htmlFor={id} className="hidden">
+        Slider
+      </label>
+      <input
+        type="range"
+        value={current}
+        name={name}
+        min={min}
+        max={max}
+        id={id}
+        disabled={disabled}
+        alt="slider"
+        className={`bg-[var(--interface-color)] hover:bg-[var(--interface-focus-color)]  rounded-4xl appearance-none ${className}`}
+        onChange={(value) => onChange(parseInt(value.currentTarget.value))}
+      />
+    </div>
   );
 }

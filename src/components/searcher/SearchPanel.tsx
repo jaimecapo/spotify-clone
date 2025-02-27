@@ -29,7 +29,7 @@ export function SearchInput() {
     <form
       action="#"
       method="get"
-      className="relative bg-[var(--interface-color)] hover:bg-[var(--interface-focus-color)] p-2 pl-3 pr-3 rounded-4xl flex flex-row gap-2"
+      className="relative bg-[var(--interface-color)] hover:bg-[var(--interface-focus-color)] p-2 pl-3 pr-3 rounded-4xl flex flex-row items-center gap-2"
       onSubmit={(e) => e.preventDefault()}
       onBlur={(e) => {
         //onBlur se ejecuta cuando sales del elemento.
@@ -39,17 +39,26 @@ export function SearchInput() {
         }
       }}
     >
-      <BtnLupa height={24} />
+      <label htmlFor="buscador" className="flex">
+        <BtnLupa height={24} />
+      </label>
       <input
         type="text"
         className="p-1 w-[100px] sm:w-[300px] lg:w-[400px]"
         alt="Buscador"
+        id="buscador"
+        name="buscador"
         value={termino}
         onChange={(value) => setTermino(value.currentTarget.value)}
         placeholder="¿Qué quieres reproducir?..."
         onFocus={() => setHidden(false)}
       />
-      <button className="btn" onClick={() => setTermino("")}>
+      <button
+        className="btn"
+        type="button"
+        title="searche-btn"
+        onClick={() => setTermino("")}
+      >
         <span
           aria-hidden="true"
           className="IconWrapper__Wrapper-sc-16usrgb-0 hYdsxw"

@@ -19,7 +19,7 @@ export default function Biblioteca() {
   return (
     <div className="h-full grid grid-cols-1 grid-rows-[auto_1fr] gap-2">
       <header className="flex flex-row gap-2 p-4 pb-2 items-center ">
-        <button className="btn">
+        <button className="btn" type="button" title="biblioteca-play-btn">
           <span
             aria-hidden="true"
             className="IconWrapper__Wrapper-sc-16usrgb-0 jEDcnm"
@@ -42,17 +42,20 @@ export default function Biblioteca() {
       </header>
       <section className="playlists p-2">
         <div className="playlists-filters grid grid-cols-[auto_1fr] gap-2 p-2 items-center">
-          <BtnLupa
-            height={20}
-            onClick={() => {
-              return;
-            }}
-          />
+          <label htmlFor="termino" className="flex">
+            <BtnLupa
+              height={20}
+              onClick={() => {
+                return;
+              }}
+            />
+          </label>
           <input
             className="rounded-[5px] hidden lg:flex"
             type="text"
             name="termino"
             id="termino"
+            alt="term search"
             onChange={(e) => setTermino(e.currentTarget.value)}
           />
         </div>

@@ -18,6 +18,7 @@ export function NextBtn({
       id={id}
       disabled={disabled}
       type="button"
+      title="next-btn"
       className={`btn w-fit h-fit p-2 bg-[var(--secundary-font)] hover:bg-[var(--primary-font)] hover:scale-105 transition-[scale_0.2s_ease] rounded-[100%] ${disabled ? "opacity-50" : ""} ${className}`}
     >
       <span aria-hidden="true" className="e-9640-button__icon-wrapper">

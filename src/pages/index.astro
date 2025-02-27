@@ -32,11 +32,13 @@ const recientes = playlistToRender.slice(0, 8);
     <div class="type-btns flex flex-row gap-2">
       <a
         href="/"
+        title="home-page-title"
         class="active btn p-[8px_12px] has-[.active]:bg-white has-[.active]:text-[var(--interface-color)] rounded-4xl bg-[var(--interface-thinner-color)] hover:bg-[var(--interface-thinner-focus-color)] flex w-fit"
         ><p class={`${!onlyAlbums ? "active" : ""}`}>Todo</p></a
       >
       <a
         href="/?type=album"
+        title="home-page-title-filtered"
         class="active btn p-[8px_12px] has-[.active]:bg-white has-[.active]:text-[var(--interface-color)] rounded-4xl bg-[var(--interface-thinner-color)] hover:bg-[var(--interface-thinner-focus-color)] flex w-fit"
       >
         <p class={`${onlyAlbums ? "active" : ""}`}>Albumes</p></a

@@ -22,12 +22,13 @@ export default function BibliotecaItem({ playlist }: Props) {
     <li className="playlist hover:bg-[var(--interface-focus-color)] rounded p-2">
       <a
         href={`/playlists/${playlist.id}`}
+        title="open playlist"
         className="group relative flex flex-row items-center gap-2"
       >
         <img
           src={playlist.img}
-          alt={playlist.name}
-          className="w-[48px] h-[48px] rounded"
+          alt={`Imagen: ${playlist.name}`}
+          className="w-[48px] h-[48px] rounded object-cover"
         ></img>
         <PlayBtn
           handleChange={handlePlay}

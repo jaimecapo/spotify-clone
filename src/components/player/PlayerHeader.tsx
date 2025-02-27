@@ -11,7 +11,11 @@ export function PlayerHeader({ currentSong }: Props) {
     >
       <div className="h-18 w-18 bg-[var(--interface-thinner-color)]">
         {currentSong ? (
-          <img src={currentSong.album?.cover} alt="Album cover" />
+          <img
+            src={currentSong.album?.cover}
+            alt="Album cover"
+            className="object-cover"
+          />
         ) : undefined}
       </div>
       {currentSong ? (

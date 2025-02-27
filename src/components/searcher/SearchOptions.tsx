@@ -32,10 +32,10 @@ export function SearchOption({ song }: Props) {
       <div className="relative group">
         <img
           src={song.album?.cover}
-          alt={song.name}
+          alt={`Imagen: ${song.name}`}
           width={65}
           height={65}
-          className=" h-fit rounded"
+          className=" h-fit rounded object-cover"
         />
         <PlayBtn
           customStyle={true}

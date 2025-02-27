@@ -47,7 +47,7 @@ export default function Player() {
 
   return (
     <div className="grid grid-cols-3 items-center w-full h-full">
-      <audio ref={audioRef} id="audio" />
+      <audio ref={audioRef} id="audio" title="audio-element" />
 
       <PlayerHeader currentSong={currentSong} />
       <div
