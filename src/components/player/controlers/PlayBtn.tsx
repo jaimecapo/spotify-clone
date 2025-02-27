@@ -5,7 +5,7 @@ interface Props {
   disabled?: boolean;
   fillColor?: string;
   strokeColor?: string;
-  handleChange: () => void;
+  handleChange?: () => void;
 }
 
 export function PlayBtn({
@@ -14,7 +14,7 @@ export function PlayBtn({
   disabled = false,
   fillColor = "",
   strokeColor = "",
-  handleChange,
+  handleChange = () => {},
   className,
 }: Props) {
   return (
