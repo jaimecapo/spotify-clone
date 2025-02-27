@@ -43,7 +43,7 @@ if (!playlist) Astro.redirect("/");
           </div>
         </div>
         <div class="playlist-content p-[1em_1.5em] md:p-[2em_3em] h-full overflow-x-scroll bg-[rgb(0,0,0,0.25)]">
-          <SongsList songs={playlist.songs} client:load />
+          <SongsList playlist={playlist} client:load />
         </div>
       </div>
     ) : (

@@ -2,9 +2,9 @@ import { type Playlist } from "@lib/data";
 import { SongItem } from "@components/playlists/SongItem";
 
 interface Props {
-  songs: Playlist["songs"];
+  playlist: Playlist;
 }
-export function SongsList({ songs }: Props) {
+export function SongsList({ playlist }: Props) {
   return (
     <table className="table-auto min-w-fit w-full text-left">
       <thead className="font-bold border-b-1">
@@ -17,9 +17,10 @@ export function SongsList({ songs }: Props) {
         </tr>
       </thead>
       <tbody>
-        {songs.map((song, index) => (
+        {playlist.songs.map((song, index) => (
           <SongItem
             song={song.song}
+            playlist={playlist}
             index={index}
             addedAt={song.addedAt}
             key={index}

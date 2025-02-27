@@ -1,4 +1,4 @@
-import type { Song } from "@lib/data";
+import type { Playlist, Song } from "@lib/data";
 import { useStore } from "@nanostores/react";
 import { atom } from "nanostores";
 import { useEffect, useRef } from "react";
@@ -7,17 +7,21 @@ import { PlayerHeader } from "./PlayerHeader";
 import { VolumeController } from "@components/player/controlers/VolumeControler";
 import { PlayerController } from "@components/player/controlers/PlayControler";
 
-export const stateStore = atom<{
+export type State = {
   isPlaying: boolean;
   currentSong: Song | null;
-}>({
+  playlist: Playlist | null;
+};
+
+export const stateStore = atom<State>({
   isPlaying: false,
   currentSong: null,
+  playlist: null,
 });
 
 export default function Player() {
   const state = useStore(stateStore);
-  const { isPlaying, currentSong } = state;
+  const { isPlaying, playlist, currentSong } = state;
   const audioRef = useRef<HTMLAudioElement>(null);
 
   //Q cambia el src del audio en cuanto se cambia de canción.
@@ -34,11 +38,12 @@ export default function Player() {
     if (state.isPlaying) {
       audioRef.current.play();
     } else audioRef.current.pause();
-  }, [isPlaying]);
+  }, [isPlaying, currentSong]);
 
-  const handleChange = () => {
-    stateStore.set({ ...state, isPlaying: !state.isPlaying });
-  };
+  const currentPosition =
+    playlist && currentSong
+      ? playlist.songs.findIndex((item) => item.song.id === currentSong.id)
+      : null;
 
   return (
     <div className="grid grid-cols-3 items-center w-full h-full">
@@ -49,7 +54,13 @@ export default function Player() {
         id="player-player"
         className="flex flex-col gap-2 justify-center items-center"
       >
-        <PlayerController isPlaying={isPlaying} handleChange={handleChange} />
+        <PlayerController
+          audioRef={audioRef.current}
+          isPlaying={isPlaying}
+          playlist={playlist}
+          position={currentPosition}
+          state={state}
+        />
         <ProgressController
           currentSong={currentSong}
           audio={audioRef.current}

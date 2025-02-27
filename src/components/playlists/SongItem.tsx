@@ -1,6 +1,6 @@
-import { PlayerController } from "@components/player/controlers/PlayControler";
+import { PlayBtn } from "@components/player/controlers/PlayBtn";
 import { stateStore } from "@components/player/Player";
-import type { Song } from "@lib/data";
+import type { Playlist, Song } from "@lib/data";
 import { useStore } from "@nanostores/react";
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
@@ -8,10 +8,11 @@ import { convertSeconds } from "src/utils/timeConversions";
 
 interface Props {
   song: Song;
+  playlist: Playlist;
   index: number;
   addedAt: Date;
 }
-export function SongItem({ song, index, addedAt }: Props) {
+export function SongItem({ song, playlist, index, addedAt }: Props) {
   const duration = convertSeconds(song.duration);
   const { currentSong, isPlaying } = useStore(stateStore);
 
@@ -25,6 +26,7 @@ export function SongItem({ song, index, addedAt }: Props) {
     stateStore.set({
       isPlaying: !isPlaying,
       currentSong: song,
+      playlist: playlist,
     });
   };
 
@@ -37,7 +39,7 @@ export function SongItem({ song, index, addedAt }: Props) {
         >
           {index}
         </button>
-        <PlayerController
+        <PlayBtn
           className={`${!!(currentSong?.id === song.id && clientIsPlaying) ? "block" : "hidden"} group-hover:block m-auto`}
           handleChange={handleChangeSong}
           isPlaying={!!(currentSong?.id === song.id && clientIsPlaying)}

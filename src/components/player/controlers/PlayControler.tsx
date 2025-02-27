@@ -1,49 +1,69 @@
+import type { Playlist } from "@lib/data";
+import { NextBtn } from "./NextBtn";
+import { PlayBtn } from "./PlayBtn";
+import { stateStore, type State } from "../Player";
+
 interface Props {
-  className?: string;
+  audioRef: HTMLAudioElement | null;
   isPlaying: boolean;
-  handleChange: () => void;
+  playlist: Playlist | null;
+  state: State;
+  position: number | null;
 }
 
 export function PlayerController({
   isPlaying,
-  handleChange,
-  className,
+  state,
+  playlist,
+  audioRef,
+  position,
 }: Props) {
+  const handlePlay = () => {
+    stateStore.set({ ...state, isPlaying: !state.isPlaying });
+  };
+
+  const handleNext = () => {
+    if (playlist && position !== null)
+      stateStore.set({
+        ...state,
+        currentSong: playlist.songs[position + 1].song,
+        isPlaying: true,
+      });
+  };
+
+  const handlePrevius = () => {
+    if (playlist && position)
+      stateStore.set({
+        ...state,
+        currentSong: playlist.songs[position - 1].song,
+        isPlaying: true,
+      });
+  };
+
   return (
-    <button
-      type="button"
-      className={`btn p-3 bg-[var(--secundary-font)] hover:bg-[var(--primary-font)] hover:scale-105 transition-[scale_0.2s_ease] rounded-[100%] ${className}`}
-      onClick={handleChange}
-    >
-      <span className="">
-        <span className="fill-[var(--background-color)] ">
-          {!isPlaying ? <Play /> : <Pause />}
-        </span>
-      </span>
-    </button>
+    <div className="flex gap-2 items-center">
+      <NextBtn
+        type="previus"
+        id="previus-btn"
+        disabled={!playlist || position === null || position === 0}
+        onChange={handlePrevius}
+      />
+      <PlayBtn
+        disabled={!audioRef || !audioRef.src}
+        isPlaying={isPlaying}
+        handleChange={handlePlay}
+        className=""
+      />
+      <NextBtn
+        type="next"
+        id="next-btn"
+        disabled={
+          !playlist ||
+          position === null ||
+          position === playlist.songs.length - 1
+        }
+        onChange={handleNext}
+      />
+    </div>
   );
 }
-
-const Play = () => (
-  <svg
-    data-encore-id="icon-play-btn"
-    role="img"
-    viewBox="0 0 16 16"
-    width={20}
-    height={20}
-  >
-    <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
-  </svg>
-);
-
-const Pause = () => (
-  <svg
-    data-encore-id="icon-play-btn"
-    role="img"
-    viewBox="0 0 16 16"
-    width={20}
-    height={20}
-  >
-    <path d="M2.7 1a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7H2.7zm8 0a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-2.6z"></path>
-  </svg>
-);
