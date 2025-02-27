@@ -56,6 +56,7 @@ const emptyProgressBar = (
   <div className="flex w-full gap-2">
     <p>00:00</p>
     <Slider
+      className="w-full"
       max={0}
       min={0}
       current={0}

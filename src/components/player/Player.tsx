@@ -9,38 +9,40 @@ import { PlayerController } from "@components/player/controlers/PlayControler";
 
 export const stateStore = atom<{
   isPlaying: boolean;
-  volumen: number;
   currentSong: Song | null;
 }>({
   isPlaying: false,
-  volumen: 1,
   currentSong: null,
 });
 
 export default function Player() {
   const state = useStore(stateStore);
-  const { isPlaying, currentSong, volumen } = state;
-  const audio = useRef<HTMLAudioElement>(null);
+  const { isPlaying, currentSong } = state;
+  const audioRef = useRef<HTMLAudioElement>(null);
 
+  //Q cambia el src del audio en cuanto se cambia de canción.
   useEffect(() => {
-    if (audio.current) {
-      audio.current.src = currentSong ? `../audios/${currentSong.audio}` : "";
-    }
+    if (!audioRef.current) return;
+
+    audioRef.current.src = currentSong ? `../audios/${currentSong.audio}` : "";
   }, [currentSong]);
+
+  //hook que en caso de haber cancion y cambiar el estado `playing` para reproducirlo
+  useEffect(() => {
+    if (!audioRef.current) return;
+
+    if (state.isPlaying) {
+      audioRef.current.play();
+    } else audioRef.current.pause();
+  }, [isPlaying]);
 
   const handleChange = () => {
     stateStore.set({ ...state, isPlaying: !state.isPlaying });
-
-    //reproducir o parar la música
-    if (audio.current) {
-      if (!state.isPlaying) audio.current.play();
-      else audio.current.pause();
-    }
   };
 
   return (
     <div className="grid grid-cols-3 items-center w-full h-full">
-      <audio ref={audio} id="audio" />
+      <audio ref={audioRef} id="audio" />
 
       <PlayerHeader currentSong={currentSong} />
       <div
@@ -50,11 +52,11 @@ export default function Player() {
         <PlayerController isPlaying={isPlaying} handleChange={handleChange} />
         <ProgressController
           currentSong={currentSong}
-          audio={audio.current}
+          audio={audioRef.current}
           isPlaying={isPlaying}
         />
       </div>
-      <VolumeController audio={audio.current} />
+      <VolumeController audio={audioRef.current} />
     </div>
   );
 }

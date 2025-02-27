@@ -9,7 +9,7 @@ export function SongsList({ songs }: Props) {
     <table className="table-auto w-full text-left ">
       <thead className="font-bold border-b-1">
         <tr>
-          <th className="p-3">#</th>
+          <th className="p-3 m-auto text-center">#</th>
           <th className="p-3">Titulo</th>
           <th className="p-3">Album</th>
           <th className="p-3">Añadido</th>

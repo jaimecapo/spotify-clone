@@ -6,7 +6,7 @@ interface Props {
 }
 
 export function VolumeController({ audio }: Props) {
-  const [currentVolumen, setCurrentVolumen] = useState(20);
+  const [currentVolumen, setCurrentVolumen] = useState(100);
 
   if (!audio) return emptyVolumen(currentVolumen);
 

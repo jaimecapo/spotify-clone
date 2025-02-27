@@ -11,11 +11,16 @@ if (!playlist) Astro.redirect("/");
 <Layout>
   {
     playlist ? (
-      <div class="playlist p-10 flex flex-col gap-10">
-        <div class="playlist-header flex gap-8 items-end overflow-hidden">
+      <div class="playlist grid grid-rows-[auto_1fr] min-h-full gap-5 background-gradient">
+        <div class="playlist-header p-[2em_3em_1em_3em]  h-fit flex gap-8 items-end overflow-hidden">
+          <div id="color" class="hidden">
+            {playlist.color}
+          </div>
           <img
             src={playlist.img}
             alt=""
+            width="48"
+            height="48"
             class="w-48 h-48 rounded "
             transition:name={`playlist-img id-${playlist.id}`}
           />
@@ -37,7 +42,7 @@ if (!playlist) Astro.redirect("/");
             </div>
           </div>
         </div>
-        <div class="playlist-content">
+        <div class="playlist-content  p-[2em_3em] h-full  bg-[rgb(0,0,0,0.25)]">
           <SongsList songs={playlist.songs} client:load />
         </div>
       </div>
@@ -47,8 +52,31 @@ if (!playlist) Astro.redirect("/");
   }
 </Layout>
 
+<script>
+  function updateGradientColor() {
+    const color =
+      document.getElementById("color")?.textContent?.trim() || "black";
+    document.documentElement.style.setProperty("--gradient-color", color);
+  }
+
+  if (typeof document !== "undefined") {
+    updateGradientColor();
+    document.addEventListener("astro:after-swap", updateGradientColor);
+  }
+</script>
+
 <style>
+  :root {
+    --gradient-color: black;
+  }
   .playlist-header > img {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  .background-gradient {
+    background: linear-gradient(
+      180deg,
+      var(--gradient-color) 5%,
+      rgba(252, 176, 69, 0) 50%
+    );
   }
 </style>

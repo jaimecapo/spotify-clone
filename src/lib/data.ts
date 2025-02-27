@@ -213,7 +213,7 @@ export const PLAYLISTS: Playlist[] = [
     author: "jaime.cabaleiro",
     img: "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c58a3a240e9b348843fe75fb9",
     isAlbum: false,
-    color: "#8f28d5",
+    color: "#4ca1d0",
     songs: [
       {
         addedAt: new Date(),
