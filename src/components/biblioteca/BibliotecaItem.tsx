@@ -1,10 +1,23 @@
+import { PlayBtn } from "@components/player/controlers/PlayBtn";
+import { stateStore } from "@components/player/Player";
 import type { Playlist } from "@lib/data";
+import { useStore } from "@nanostores/react";
 
 type Props = {
   playlist: Playlist;
 };
 
 export default function BibliotecaItem({ playlist }: Props) {
+  const state = useStore(stateStore);
+
+  const handlePlay = () => {};
+
+  const isPlaying = !!(
+    state.playlist &&
+    state.playlist.id === playlist.id &&
+    state.isPlaying
+  );
+
   return (
     <li className="playlist hover:bg-[var(--interface-focus-color)] rounded p-2">
       <a
@@ -16,19 +29,13 @@ export default function BibliotecaItem({ playlist }: Props) {
           alt={playlist.name}
           className="w-[48px] h-[48px] rounded"
         ></img>
-        <button className="absolute hidden top-0 left-0 group-hover:flex justify-center items-center w-[48px] h-[48px] fill-white bg-black/50 rounded">
-          <span className="IconWrapper__Wrapper-sc-16usrgb-0 hYdsxw">
-            <svg
-              data-encore-id="icon"
-              role="img"
-              height={20}
-              className="Svg-sc-ytk21e-0 bneLcE e-9541-icon"
-              viewBox="0 0 24 24"
-            >
-              <path d="M5.7 3a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7H5.7zm10 0a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7h-2.6z"></path>
-            </svg>
-          </span>
-        </button>
+        <PlayBtn
+          handleChange={handlePlay}
+          customStyle={true}
+          isPlaying={isPlaying}
+          fillColor={"fill-white"}
+          className="absolute hidden top-0 left-0 group-hover:flex justify-center items-center w-[48px] h-[48px] bg-black/50 rounded"
+        />
 
         <div className="hidden lg:block">
           <h3 className="font-normal ">{playlist.name}</h3>

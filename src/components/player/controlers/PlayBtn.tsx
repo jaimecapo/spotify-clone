@@ -1,25 +1,37 @@
 interface Props {
   className?: string;
+  customStyle?: boolean;
   isPlaying: boolean;
   disabled?: boolean;
+  fillColor?: string;
+  strokeColor?: string;
   handleChange: () => void;
 }
 
 export function PlayBtn({
   isPlaying,
+  customStyle = false,
   disabled = false,
+  fillColor = "",
+  strokeColor = "",
   handleChange,
   className,
 }: Props) {
   return (
     <button
       type="button"
-      className={`btn p-3 w-fit h-fit bg-[var(--secundary-font)] hover:bg-[var(--primary-font)] hover:scale-105 transition-[scale_0.2s_ease] rounded-[100%] ${disabled ? "opacity-50" : ""} ${className}`}
+      className={
+        customStyle
+          ? `btn ${disabled} ${className}`
+          : `btn p-3 w-fit h-fit bg-[var(--secundary-font)] hover:bg-[var(--primary-font)] hover:scale-105 transition-[scale_0.2s_ease] rounded-[100%] ${disabled ? "opacity-50" : ""} ${className}`
+      }
       disabled={disabled}
       onClick={handleChange}
     >
       <span className="">
-        <span className="fill-[var(--background-color)] ">
+        <span
+          className={`${fillColor ? fillColor : "fill-[var(--background-color)]"} ${strokeColor ? strokeColor : ""}`}
+        >
           {!isPlaying ? <Play /> : <Pause />}
         </span>
       </span>
