@@ -29,7 +29,7 @@ export function SongItem({ song, index, addedAt }: Props) {
   };
 
   return (
-    <tr>
+    <tr className="group">
       <td className="w-14 h-14 group">
         <button
           className={`${!!(currentSong?.id === song.id && clientIsPlaying) ? "hidden" : "block"} group-hover:hidden m-auto`}
@@ -43,17 +43,26 @@ export function SongItem({ song, index, addedAt }: Props) {
           isPlaying={!!(currentSong?.id === song.id && clientIsPlaying)}
         />
       </td>
-      <td className="p-2 flex items-center gap-2">
+      <td className="p-2 min-w-[200px] flex items-center gap-2 overflow-hidden">
         <img src={song.album?.cover} className="w-[42px] h-[42px]" />
         <div>
-          <p>{song.name}</p> <p>{song.artists.join(", ")}</p>
+          <p
+            className={`${currentSong?.id === song.id ? "text-green-400" : "text-[var(--primary-font)]"}`}
+          >
+            {song.name}
+          </p>{" "}
+          <p className="text-[var(--secundary-font)] group-hover:text-[var(--primary-font)]">
+            {song.artists.join(", ")}
+          </p>
         </div>
       </td>
-      <td className="p-2">{song.album?.name}</td>
-      <td className="p-2">
+      <td className="p-2 text-[var(--secundary-font)] group-hover:text-[var(--primary-font)]">
+        {song.album?.name}
+      </td>
+      <td className="p-2 hidden sm:table-cell text-[var(--secundary-font)] group-hover:text-[var(--primary-font)]">
         {addedAt ? dayjs(addedAt).format("DD MMMM YYYY") : "-"}
       </td>
-      <td className="p-2">{`${duration.mins}:${duration.secs}`}</td>
+      <td className="p-2 hidden sm:table-cell text-[var(--secundary-font)] group-hover:text-[var(--primary-font)] text-center">{`${duration.mins}:${duration.secs}`}</td>
     </tr>
   );
 }

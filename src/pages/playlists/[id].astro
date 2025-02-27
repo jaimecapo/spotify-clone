@@ -12,7 +12,7 @@ if (!playlist) Astro.redirect("/");
   {
     playlist ? (
       <div class="playlist grid grid-rows-[auto_1fr] min-h-full gap-5 background-gradient">
-        <div class="playlist-header p-[2em_3em_1em_3em]  h-fit flex gap-8 items-end overflow-hidden">
+        <div class="playlist-header p-[2em_2em_1em_2em]  md:p-[2em_3em_1em_3em]  grid grid-cols-1 md:grid-cols-[auto_1fr] gap-8 items-end overflow-hidden">
           <div id="color" class="hidden">
             {playlist.color}
           </div>
@@ -27,7 +27,7 @@ if (!playlist) Astro.redirect("/");
           <div class="flex flex-col gap-2">
             <p>{playlist.isAlbum ? "Album" : "Lista"}</p>
             <h2 class="text-5xl font-bold pb-4">{playlist.name}</h2>
-            <div class="flex gap-2">
+            <div class="flex flex-wrap gap-2">
               <p>{playlist.author}</p>{" "}
               <p class="text-[var(--secundary-font)]">
                 {playlist.songs.length} canciones,{" "}
@@ -42,7 +42,7 @@ if (!playlist) Astro.redirect("/");
             </div>
           </div>
         </div>
-        <div class="playlist-content  p-[2em_3em] h-full  bg-[rgb(0,0,0,0.25)]">
+        <div class="playlist-content p-[1em_1.5em] md:p-[2em_3em] h-full overflow-x-scroll bg-[rgb(0,0,0,0.25)]">
           <SongsList songs={playlist.songs} client:load />
         </div>
       </div>
