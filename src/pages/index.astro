@@ -1,8 +1,83 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { PLAYLISTS, type Playlist } from "@lib/data";
+import EmptyPlayList from "@components/playlists/visualizers/EmptyVisualizer.astro";
+import RecentPlaylistItem from "@components/playlists/visualizers/LittleVisualizer.astro";
+import MediumPlaylist from "@components/playlists/visualizers/MediumVisualizer.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Bienvenido a mi recreación de Spotify.
+const minPlaylists = 8;
+const type = Astro.url.searchParams.get("type");
+
+const onlyAlbums = type && type === "album";
+
+const filteredPlaylists = onlyAlbums
+  ? PLAYLISTS.filter((p) => p.isAlbum)
+  : PLAYLISTS;
+
+const playlistToRender: Playlist[] =
+  filteredPlaylists.length >= minPlaylists
+    ? filteredPlaylists
+    : [
+        ...filteredPlaylists,
+        ...Array(minPlaylists - filteredPlaylists.length).fill(null),
+      ];
+
+const recientes = playlistToRender.slice(0, 8);
 ---
 
-<Layout />
+<Layout>
+  <div class="background-gradient absolute top-0 right-0 w-full h-30"></div>
+  <div class="content p-5 flex flex-col gap-8">
+    <div class="type-btns flex flex-row gap-2">
+      <a
+        href="/"
+        title="home-page-title"
+        class="active btn p-[8px_12px] has-[.active]:bg-white has-[.active]:text-[var(--interface-color)] rounded-4xl bg-[var(--interface-thinner-color)] hover:bg-[var(--interface-thinner-focus-color)] flex w-fit"
+        ><p class={`${!onlyAlbums ? "active" : ""}`}>Todo</p></a
+      >
+      <a
+        href="/?type=album"
+        title="home-page-title-filtered"
+        class="active btn p-[8px_12px] has-[.active]:bg-white has-[.active]:text-[var(--interface-color)] rounded-4xl bg-[var(--interface-thinner-color)] hover:bg-[var(--interface-thinner-focus-color)] flex w-fit"
+      >
+        <p class={`${onlyAlbums ? "active" : ""}`}>Albumes</p></a
+      >
+    </div>
+    <div
+      class="last-playlists grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 md:grid-rows-4 grid-rows-8 gap-2"
+    >
+      {
+        recientes.map((p) =>
+          p ? <RecentPlaylistItem playlist={p} /> : <EmptyPlayList />
+        )
+      }
+    </div>
+
+    <div class="flex flex-col w-full">
+      <h2 class="text-2xl font-bold w-full text-start mb-3">Hecho para ti.</h2>
+      <div class="flex flex-wrap gap-2">
+        {PLAYLISTS.map((p) => <MediumPlaylist playlist={p} />)}
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  :root {
+    --gradient-color: green;
+  }
+  .background-gradient {
+    background: linear-gradient(
+      180deg,
+      var(--gradient-color),
+      rgba(252, 176, 69, 0) 100%
+    );
+    z-index: 1;
+    opacity: 0.2;
+  }
+  .content {
+    position: inherit;
+    z-index: 1;
+  }
+</style>

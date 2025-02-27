@@ -1,0 +1,82 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { PLAYLISTS } from "@lib/data";
+import { SongsList } from "@components/playlists/SongsList";
+const { id } = Astro.params;
+
+const playlist = PLAYLISTS.find((p) => p.id === (id ? parseInt(id) : 0));
+if (!playlist) Astro.redirect("/");
+---
+
+<Layout>
+  {
+    playlist ? (
+      <div class="playlist grid grid-rows-[auto_1fr] min-h-full gap-5 background-gradient">
+        <div class="playlist-header p-[2em_2em_1em_2em]  md:p-[2em_3em_1em_3em]  grid grid-cols-1 md:grid-cols-[auto_1fr] gap-8 items-end overflow-hidden">
+          <div id="color" class="hidden">
+            {playlist.color}
+          </div>
+          <img
+            src={playlist.img}
+            alt={`Imagen: ${playlist.name}`}
+            width="48"
+            height="48"
+            class="w-48 h-48 rounded object-cover "
+            transition:name={`playlist-img id-${playlist.id}`}
+          />
+          <div class="flex flex-col gap-2">
+            <p>{playlist.isAlbum ? "Album" : "Lista"}</p>
+            <h2 class="text-5xl font-bold pb-4">{playlist.name}</h2>
+            <div class="flex flex-wrap gap-2">
+              <p>{playlist.author}</p>{" "}
+              <p class="text-[var(--secundary-font)]">
+                {playlist.songs.length} canciones,{" "}
+                {(
+                  playlist.songs.reduce(
+                    (previus, song) => previus + song.song.duration,
+                    0
+                  ) / 3600000
+                ).toFixed(0)}{" "}
+                horas aproximadamente.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="playlist-content p-[1em_1.5em] md:p-[2em_3em] h-full overflow-x-scroll bg-[rgb(0,0,0,0.25)]">
+          <SongsList playlist={playlist} client:load />
+        </div>
+      </div>
+    ) : (
+      <div />
+    )
+  }
+</Layout>
+
+<script>
+  function updateGradientColor() {
+    const color =
+      document.getElementById("color")?.textContent?.trim() || "black";
+    document.documentElement.style.setProperty("--gradient-color", color);
+  }
+
+  if (typeof document !== "undefined") {
+    updateGradientColor();
+    document.addEventListener("astro:after-swap", updateGradientColor);
+  }
+</script>
+
+<style>
+  :root {
+    --gradient-color: black;
+  }
+  .playlist-header > img {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  .background-gradient {
+    background: linear-gradient(
+      180deg,
+      var(--gradient-color) 5%,
+      rgba(252, 176, 69, 0) 50%
+    );
+  }
+</style>
