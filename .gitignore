@@ -27,3 +27,6 @@ pnpm-debug.log*
 # notas personales de funcionamiento de api.
 doc/notes/
 doc/notes/*
+
+# .netlify folder
+.netlify/
